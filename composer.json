@@ -43,6 +43,13 @@
         "sort-packages": true,
         "discard-changes": true
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "GuzzleHttp\\Profiling\\Clockwork\\GuzzleClockworkServiceProvider"
+            ]
+        }
+    },
     "scripts": {
         "test": "./vendor/bin/phpunit"
     }

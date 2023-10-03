@@ -1,16 +1,20 @@
 {
-    "name": "hannesvdvreken/guzzle-clockwork",
+    "name": "keerill/guzzle-clockwork",
     "description": "A Guzzle middleware that logs requests with Clockwork",
     "authors": [
         {
             "name": "Hannes Van De Vreken",
             "email": "vandevreken.hannes@gmail.com"
+        },
+        {
+            "name": "Kirill Popkov",
+            "email": "kirill.popkov.work@gmail.com"
         }
     ],
     "keywords": ["Clockwork", "log", "Guzzle", "middleware", "profiling", "profiler", "PHP", "browser", "Devtools"],
     "license": "MIT",
     "require": {
-        "php": ">=7.3",
+        "php": ">=8.1",
         "hannesvdvreken/guzzle-profiler": "^2.0",
         "itsgoingd/clockwork": "^5.0"
     },
@@ -38,5 +42,8 @@
     "config": {
         "sort-packages": true,
         "discard-changes": true
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit"
     }
 }

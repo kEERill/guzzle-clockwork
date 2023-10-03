@@ -12,26 +12,16 @@ class Profiler implements ProfilerContract
 {
     use DescriptionMaker;
 
-    /**
-     * @var \Clockwork\Request\Timeline
-     */
-    private $timeline;
-
-    /**
-     * Public constructor.
-     *
-     * @param \Clockwork\Request\Timeline $timeline
-     */
-    public function __construct(Timeline $timeline)
-    {
-        $this->timeline = $timeline;
+    public function __construct(
+        protected Timeline $timeline) {
     }
 
     /**
      * @param float $start
      * @param float $end
-     * @param \Psr\Http\Message\RequestInterface $request
-     * @param \Psr\Http\Message\ResponseInterface $response
+     * @param RequestInterface $request
+     * @param ResponseInterface|null $response
+     * @return void
      */
     public function add(float $start, float $end, RequestInterface $request, ResponseInterface $response = null): void
     {

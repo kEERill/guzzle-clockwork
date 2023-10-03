@@ -1,19 +1,23 @@
 # [Guzzle](http://docs.guzzlephp.org/en/latest/) middleware for [Clockwork](https://github.com/itsgoingd/clockwork) logging
 
-[![Build Status](https://img.shields.io/travis/hannesvdvreken/guzzle-clockwork/3.x?style=flat-square)](https://travis-ci.org/hannesvdvreken/guzzle-clockwork)
-[![Latest Stable Version](https://img.shields.io/packagist/v/hannesvdvreken/guzzle-clockwork?style=flat-square)](https://packagist.org/packages/hannesvdvreken/guzzle-clockwork)
-[![Code Quality](https://img.shields.io/scrutinizer/g/hannesvdvreken/guzzle-clockwork?style=flat-square)](https://scrutinizer-ci.com/g/hannesvdvreken/guzzle-clockwork/)
-[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/hannesvdvreken/guzzle-clockwork?style=flat-square)](https://scrutinizer-ci.com/g/hannesvdvreken/guzzle-clockwork/)
-[![Total Downloads](https://img.shields.io/packagist/dt/hannesvdvreken/guzzle-clockwork?style=flat-square)](https://packagist.org/packages/hannesvdvreken/guzzle-clockwork)
-[![License](https://img.shields.io/github/license/hannesvdvreken/guzzle-clockwork?style=flat-square)](#license)
+[![Build Status](https://img.shields.io/travis/keerill/guzzle-clockwork/3.x?style=flat-square)](https://travis-ci.org/hannesvdvreken/guzzle-clockwork)
+[![Latest Stable Version](https://img.shields.io/packagist/v/keerill/guzzle-clockwork?style=flat-square)](https://packagist.org/packages/hannesvdvreken/guzzle-clockwork)
+[![Code Quality](https://img.shields.io/scrutinizer/g/keerill/guzzle-clockwork?style=flat-square)](https://scrutinizer-ci.com/g/hannesvdvreken/guzzle-clockwork/)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/keerill/guzzle-clockwork?style=flat-square)](https://scrutinizer-ci.com/g/hannesvdvreken/guzzle-clockwork/)
+[![Total Downloads](https://img.shields.io/packagist/dt/keerill/guzzle-clockwork?style=flat-square)](https://packagist.org/packages/hannesvdvreken/guzzle-clockwork)
+[![License](https://img.shields.io/github/license/keerill/guzzle-clockwork?style=flat-square)](#license)
 
 Guzzle middleware for logging requests clockwork's timeline so you can view the timeline in your browser's developer tools.
 
 ![Developer tools timeline](images/clockwork-timeline.png "Developer tools timeline")
 
-![Developer tools logs](images/clockwork-logs.png "Developer tools logs")
-
 ## Usage
+
+Composer install
+
+```bash
+composer require keerill/guzzle-clockwork
+```
 
 ```php
 // First you need a Clockwork object
@@ -45,22 +49,11 @@ the subscriber to every Guzzle Client.
 'providers' => [
     ...
     \Clockwork\Support\Laravel\ClockworkServiceProvider::class,
-    \GuzzleHttp\Profiling\Clockwork\Support\Laravel\ServiceProvider::class,
+    \GuzzleHttp\Profiling\Clockwork\GuzzleClockworkServiceProvider::class,
 ],
 ```
 
 Be sure to create every client (type hint with `GuzzleHttp\ClientInterface` or `GuzzleHttp\Client`) via the IoC container.
-
-## Guzzle v4 and v5
-
-Versions `0.2.0` and up until `1.0.0` (exclusively) are all compatible with Guzzle v4 and v5. To develop for these versions of Guzzle, use the `guzzle4-5` [branch](https://github.com/hannesvdvreken/guzzle-clockwork/tree/guzzle4-5).
-
-Use
-
-## Guzzle v3
-
-If you want to continue to work with the old Guzzle v3 (`Guzzle\Http\Client` instead of `GuzzleHttp\Client`) ClockworkPlugin
-then you might want to install the `0.1.*` releases. Pull request with Guzzle v3 compatibility should be made against the `guzzle3` [branch](https://github.com/hannesvdvreken/guzzle-clockwork/tree/guzzle3). Install the latest guzzle v3 compatible version with `0.1.*` or `dev-guzzle3`.
 
 ## Contributing
 
@@ -78,4 +71,4 @@ vendor/bin/phpunit
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE.md)

@@ -16,7 +16,6 @@
     "require": {
         "php": ">=8.1",
         "hannesvdvreken/guzzle-profiler": "^2.0",
-        "illuminate/support": "^10.0",
         "illuminate/contracts": "^10.0",
         "itsgoingd/clockwork": "^5.0"
     },
@@ -37,15 +36,8 @@
             "GuzzleHttp\\Profiling\\Clockwork\\Tests\\": "tests/"
         }
     },
-    "funding": [
-        {
-            "type": "github",
-            "url": "https://github.com/sponsors/hannesvdvreken"
-        }
-    ],
     "config": {
         "sort-packages": true,
-        "discard-changes": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true
         }
@@ -61,5 +53,7 @@
         "test": "vendor/bin/pest",
         "test-coverage": "vendor/bin/pest --coverage",
         "format": "vendor/bin/pint"
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

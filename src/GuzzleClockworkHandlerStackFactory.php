@@ -16,7 +16,7 @@ class GuzzleClockworkHandlerStackFactory
     private function make(): HandlerStack
     {
         return tap(HandlerStack::create(), function (HandlerStack $handlerStack) {
-            $handlerStack->unshift(new Middleware(new Profiler($this->clockwork->timeline())));
+            $handlerStack->unshift(new Middleware(new Profiler($this->clockwork->timeline())), 'guzzle-clockwork');
         });
     }
 

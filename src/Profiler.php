@@ -12,17 +12,10 @@ class Profiler implements ProfilerContract
 {
     use DescriptionMaker;
 
-    public function __construct(
-        protected Timeline $timeline) {
+    public function __construct(protected Timeline $timeline)
+    {
     }
 
-    /**
-     * @param float $start
-     * @param float $end
-     * @param RequestInterface $request
-     * @param ResponseInterface|null $response
-     * @return void
-     */
     public function add(float $start, float $end, RequestInterface $request, ResponseInterface $response = null): void
     {
         $description = $this->describe($request, $response);

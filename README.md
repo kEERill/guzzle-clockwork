@@ -59,14 +59,14 @@ Be sure to create every client (type hint with `GuzzleHttp\ClientInterface` or `
 
 Feel free to make a pull request. Please try to be as
 [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)
-compliant as possible. Fix Code Style quickly by running `vendor/bin/php-cs-fixer fix`. Give a good description of what is supposed to be added/changed/removed/fixed.
+compliant as possible. Fix Code Style quickly by running `composer format`. Give a good description of what is supposed to be added/changed/removed/fixed.
 
 ### Testing
 
 To test your code before pushing, run the unit test suite.
 
 ```bash
-vendor/bin/phpunit
+composer test
 ```
 
 ## License

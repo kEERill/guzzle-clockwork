@@ -6,17 +6,11 @@ use Clockwork\Clockwork;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Profiling\Middleware;
-use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\ServiceProvider as BaseServiceProvider;
+use Illuminate\Support\ServiceProvider as ServiceProviderBase;
 
-class GuzzleClockworkServiceProvider extends BaseServiceProvider implements DeferrableProvider
+class GuzzleClockworkServiceProvider extends ServiceProviderBase
 {
-    public function provides(): array
-    {
-        return [ClientInterface::class];
-    }
-
     private function makeClockwork(): Clockwork
     {
         return $this->app->make('clockwork');

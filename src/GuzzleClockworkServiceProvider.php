@@ -6,7 +6,7 @@ use Clockwork\Clockwork;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Profiling\Middleware;
-use Illuminate\Support\Facades\Http;
+use Illuminate\Http\Client\Factory;
 use Illuminate\Support\ServiceProvider as ServiceProviderBase;
 
 class GuzzleClockworkServiceProvider extends ServiceProviderBase
@@ -28,6 +28,8 @@ class GuzzleClockworkServiceProvider extends ServiceProviderBase
 
     public function boot(): void
     {
-        Http::globalMiddleware(new Middleware(new Profiler($this->makeClockwork()->timeline())));
+        $this->app->afterResolving(Factory::class, function (Factory $factory) {
+            return $factory->globalMiddleware(new Middleware(new Profiler($this->makeClockwork()->timeline())));
+        });
     }
 }
